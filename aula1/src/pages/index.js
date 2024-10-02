@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import localFont from "next/font/local";
 import styles from "@/styles/Home.module.css";
+import Novapagina from "@/pages/novapagina";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -67,6 +68,7 @@ export default function Home() {
               Read our docs
             </a>
           </div>
+          <Novapagina/>
         </main>
         <footer className={styles.footer}>
           <a
