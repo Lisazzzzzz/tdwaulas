@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2  # Faz o checkout do código do repositório para ver se está tudo certo, ehehe
+        uses: actions/checkout@v3  # Faz o checkout do código do repositório para ver se está tudo certo, ehehe
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
