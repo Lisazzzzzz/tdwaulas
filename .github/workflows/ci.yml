@@ -25,13 +25,16 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Change directory
-        run: cd tdwaula_exercicios/tdwaulas/aula2
+      - name: List directories
+        run: |
+          ls -R tdwaula_exercicios/
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd tdwaula_exercicios/tdwaulas/aula2
+          npm install
 
       - name: Run tests
-        run: npm test
-
-
+        run: |
+          cd tdwaula_exercicios/tdwaulas/aula2
+          npm test
