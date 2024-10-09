@@ -20,9 +20,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Change to project directory
-        run: tdwaula_exercicios/tdwaulas/aula2 # Mude para o diretório correto
-
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -30,3 +27,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Run tests
+        run: npm test
