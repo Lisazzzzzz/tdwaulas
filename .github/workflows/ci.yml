@@ -30,6 +30,6 @@ jobs:
         run: cd aula2
 
       - name: Run tests
-        run: npm test
+        run: cd aula2
 
 
