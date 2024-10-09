@@ -1,21 +1,35 @@
-import Head from "next/head";
-import Image from "next/image";
-import localFont from "next/font/local";
-import styles from "@/styles/Home.module.css";
-import Novapagina from "@/pages/novapagina";
+import Head from 'next/head'
+import Image from 'next/image'
+import localFont from 'next/font/local'
+import styles from '@/styles/Home.module.css'
+import { useEffect } from 'react'
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
+  src: './fonts/GeistVF.woff',
+  variable: '--font-geist-sans',
+  weight: '100 900',
+})
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+  src: './fonts/GeistMonoVF.woff',
+  variable: '--font-geist-mono',
+  weight: '100 900',
+})
 
 export default function Home() {
+  useEffect(() => {
+    // Só executa no lado do cliente
+    const items = ['Item 1', 'Item 2', 'Item 3']
+    const list = document.querySelector('ol')
+
+    if (list) {
+      items.forEach((item) => {
+        const li = document.createElement('li')
+        li.textContent = item
+        list.appendChild(li)
+      })
+    }
+  }, []) // O array vazio garante que o efeito corre apenas uma vez após a montagem
+
   return (
     <>
       <Head>
@@ -37,6 +51,10 @@ export default function Home() {
             priority
           />
           <ol>
+            <li> Teste de prettier</li> <li>mais um teste </li>{' '}
+            <li> Teste de prettier</li> <li>maais um teste </li>{' '}
+            <li> Teste de prettier</li> <li>maais um teste </li>{' '}
+            <li> Teste de prettier</li> <li>maais um teste </li>
             <li>
               Get started by editing <code>src/pages/index.js</code>.
             </li>
@@ -68,7 +86,6 @@ export default function Home() {
               Read our docs
             </a>
           </div>
-          <Novapagina/>
         </main>
         <footer className={styles.footer}>
           <a
@@ -116,5 +133,5 @@ export default function Home() {
         </footer>
       </div>
     </>
-  );
+  )
 }
