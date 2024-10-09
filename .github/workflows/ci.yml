@@ -26,7 +26,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Change directory
-        run: cd aula2
+        run: cd /home/runner/work/tdwaulas/tdwaula_exercicios/tdwaulas/aula2/package.json
 
       - name: Install dependencies
         run: npm install
