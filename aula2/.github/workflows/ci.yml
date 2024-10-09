@@ -6,7 +6,6 @@ on:
       - '**'  # Executar a pipeline em qualquer branch quando houver um push
   pull_request:
     branches:
-      - main  # Executar a pipeline ao abrir um pull request para a branch main
       - branchdeteste
 
 jobs:
@@ -15,14 +14,14 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]  # Testa com múltiplas versões do Node.js em paralelo
+        node-version: [14.x, 16.x, 18.x, 20.x]  # Testa com múltiplas versões do Node.js em paralelo
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3  # Faz o checkout do código do repositório para ver se está tudo certo, ehehe
+        uses: actions/checkout@v4  # Faz o checkout do código do repositório para ver se está tudo certo, ehehe
 
       - name: Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
