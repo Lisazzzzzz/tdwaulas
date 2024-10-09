@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [22.x]
+        node-version: [14.x]
 
     steps:
       - name: Checkout repository
@@ -25,16 +25,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: List directories
-        run: |
-          ls -R tdwaula_exercicios/
-
       - name: Install dependencies
-        run: |
-          cd tdwaula_exercicios/tdwaulas/aula2
-          npm install
+        run: npm install
 
       - name: Run tests
-        run: |
-          cd tdwaula_exercicios/tdwaulas/aula2
-          npm test
+        run: npm test
+
+
