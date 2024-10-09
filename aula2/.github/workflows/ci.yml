@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - main  # Executar a pipeline ao abrir um pull request para a branch main
+      - branchdeteste
 
 jobs:
   test:
@@ -18,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2  # Faz o checkout do código do repositório
+        uses: actions/checkout@v2  # Faz o checkout do código do repositório para ver se está tudo certo, ehehe
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
