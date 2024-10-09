@@ -31,4 +31,4 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-  '/home/runner/work/tdwaulas/tdwaulas/package.json'
+
