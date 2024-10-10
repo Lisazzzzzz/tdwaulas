@@ -16,6 +16,7 @@
     "react-dom": "^18"
   },
   "jest": {
+    "collectCoverage": true,
     "testEnvironment": "jest-environment-jsdom",
     "setupFilesAfterEnv": [
       "<rootDir>/setupTests.js"
