@@ -1,0 +1,49 @@
+name: Node.js CI Pipeline
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - branchdeteste
+
+jobs:
+  test:
+    name: Run tests and collect coverage
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22.x]
+
+    steps:
+      # Fazer checkout do repositório
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Configurar a versão do Node.js
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Instalar dependências no diretório aula2
+      - name: Install dependencies
+        run: |
+          cd aula2
+          npm install
+
+      # Executar testes e gerar relatório de cobertura no diretório aula2
+      - name: Run tests with coverage
+        run: |
+          cd aula2
+          npm test -- --coverage
+
+      # Fazer upload da cobertura para o Codecov
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # Remover esta linha se for um repositório público
